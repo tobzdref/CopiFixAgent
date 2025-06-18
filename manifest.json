@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "CopiFix AI Agent",
+  "version": "1.0",
+  "description": "Send tasks from your own dashboard to Copilot automatically.",
+  "permissions": ["tabs", "scripting"],
+  "host_permissions": [
+    "https://www.bing.com/*",
+    "https://copilot.microsoft.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://copilot.microsoft.com/*",
+        "https://www.bing.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
